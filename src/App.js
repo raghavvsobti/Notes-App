@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useMemo, useState } from "react";
+import { Route, Routes } from "react-router";
+import "./App.css";
+import Background from "./components/Background";
+import NoteHeading from "./components/NoteHeading";
+import Profile from "./components/Profile";
+import { authContext } from "./context";
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  const value = useMemo(() => ({ user, setUser }), [user, setUser]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <authContext.Provider value={value}>
+      <div className="App">
+        <Routes>
+          <Route exact path="/" element={<Background />} />
+          <Route exact path="/notes" element={<NoteHeading />} />
+          <Route exact path="/profile" element={<Profile />} />
+        </Routes>
+      </div>
+    </authContext.Provider>
   );
 }
 

@@ -1,0 +1,88 @@
+.container {
+  width: 100%;
+  background: whitesmoke;
+  justify-content: center;
+  height: 100vh;
+}
+
+.header {
+  margin-top: 0px;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid black;
+}
+
+.outerCard {
+  width: 100%;
+  display: "flex";
+  justify-content: center;
+  /* margin-left: 15%; */
+  margin-top: 5px;
+  /* margin: 10px; */
+}
+
+.profileCard {
+  width: 100%;
+  background: whitesmoke;
+  display: "flex";
+  justify-content: center;
+  height: 70vh;
+  /* margin-right: "55%"; */
+  border-radius: 8px;
+}
+
+.profilePictureOuter {
+  width: 100%;
+  height: auto;
+  background: whitesmoke;
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  border-radius: 50%;
+  margin-top: 5%;
+}
+
+.outerData {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background: whitesmoke;
+}
+
+.leftDetail {
+  display: flex;
+  margin-top: 20px;
+  text-align: left;
+  justify-content: flex-start;
+  /* background-color: antiquewhite; */
+
+}
+
+.colon {
+  margin-top: 20px;
+  /* background-color: antiquewhite; */
+}
+
+.rightDetail {
+  margin-top: 20px;
+  /* width: auto; */
+  text-align: left;
+  word-wrap: break-word;
+  margin-right: 10%;
+  display: flex;
+  justify-content: flex-start;
+  /* background-color: green; */
+}
+
+.edit {
+  display: flex;
+  justify-content: flex-end;
+  /* margin: 10px; */
+  color: black;
+  margin-left: 5%;
+  /* font-size: "100px"; */
+}
