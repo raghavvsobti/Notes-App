@@ -7,7 +7,7 @@ const initialState = {
   closeEditModal: true,
 };
 
-const addBoxReducer = (state = initialState, action) => {
+const ReducerFunction = (state = initialState, action) => {
   if (action.type === "newNote") {
     return {
       modal: !state.modal,
@@ -38,6 +38,6 @@ const addBoxReducer = (state = initialState, action) => {
   return state;
 };
 
-const store = createStore(addBoxReducer);
+const store = createStore(ReducerFunction);
 
 export default store;

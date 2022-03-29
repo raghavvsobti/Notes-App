@@ -7,22 +7,18 @@ import {
 } from "@mui/material";
 import { Form, FormikProvider, useFormik } from "formik";
 import * as Yup from "yup";
-import { useEffect } from "react";
 
 function EditNoteModal(props) {
-  const index = props.array.findIndex((obj) => obj.title === props.title);
   const editNote = () => {
-    props.array[index].title = formik.values.title;
-    props.array[index].desc = formik.values.desc;
+    props.onEditNote(formik.values);
     props.onClose();
   };
 
-  console.log(index);
+  console.log(props);
 
   const deleteNote = () => {
-    props.array.pop(index);
+    props.onDeleteNote();
     props.onClose();
-    console.log("Note Deleted!");
   };
 
   const NoteSchema = Yup.object().shape({
@@ -39,8 +35,6 @@ function EditNoteModal(props) {
     onSubmit: editNote,
     validationSchema: NoteSchema,
   });
-
-  useEffect(() => {}, [props.array, props.selected]);
 
   return (
     <Dialog

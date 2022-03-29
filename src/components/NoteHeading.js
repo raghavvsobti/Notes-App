@@ -48,6 +48,23 @@ function NoteHeading() {
     dispatch({ type: "closeModal" });
   };
 
+
+  const onEditNote = (index, data) => {
+    const tempNotes = [...notes];
+    tempNotes[index].title = data.title;
+    tempNotes[index].desc = data.desc;
+    setNotes(tempNotes)
+  }
+
+  const onDeleteNote = (index) => {
+    // Splice is used to remove element by index
+    // It returns the removed element
+    const tempNotes = [...notes];
+    tempNotes.splice(index, 1);
+    setNotes(tempNotes)
+  }
+
+
   useEffect(() => {}, [notes]);
 
   return (
@@ -102,7 +119,13 @@ function NoteHeading() {
       <NewNoteDialog open={modal} onClose={close} array={notes} />
       {notes.map((item, index) => {
         return (
-          <Note title={item.title} desc={item.desc} key={index} array={notes} />
+          <Note 
+          onDeleteNote={() => onDeleteNote(index)}
+          onEditNote={(data) => onEditNote(index, data)}
+          item={item}
+          title={item.title}
+          desc={item.desc}
+          key={index} />
         );
       })}
     </>

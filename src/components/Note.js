@@ -8,18 +8,16 @@ import classes from "./Note.module.css";
 function Note(props) {
   const [selected, setSelected] = useState(null);
   const dispatch = useDispatch();
-  const editModal = useSelector((state) => state.editModal);
 
-  const editNote = () => {
+  const editNote = (data) => {
     setSelected(props.title);
     dispatch({ type: "editNote" });
   };
+
   const closeEditNote = () => {
     setSelected(null);
     dispatch({ type: "closeEditModal" });
   };
-
-//   useEffect(() => {}, [props.array, selected]);
 
   return (
     <>
@@ -32,7 +30,6 @@ function Note(props) {
             </IconButton>
           </Tooltip>
         </div>
-
         <p className={classes.description}>{props.desc}</p>
       </div>
       <EditModal
@@ -42,6 +39,8 @@ function Note(props) {
         desc={props.desc}
         array={props.array}
         selected={selected}
+        onEditNote={props.onEditNote}
+        onDeleteNote={props.onDeleteNote}
       />
     </>
   );
