@@ -1,9 +1,9 @@
-import EditModal from "./EditModal";
-import { IconButton, Tooltip } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import classes from "./Note.module.css";
 import EditIcon from "@mui/icons-material/Edit";
-import { useEffect, useState, useMemo } from "react";
+import { IconButton, Tooltip } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import EditModal from "./EditModal";
+import classes from "./Note.module.css";
 
 function Note(props) {
   const [selected, setSelected] = useState(null);
@@ -19,7 +19,7 @@ function Note(props) {
     dispatch({ type: "closeEditModal" });
   };
 
-  useEffect(() => {}, [props.array]);
+//   useEffect(() => {}, [props.array, selected]);
 
   return (
     <>
